@@ -1,11 +1,4 @@
 # RULE RUSH v2 — Think Fast. Rules Change. Don't Get Tricked!
-Vanilla HTML/CSS/JS arcade game. No frameworks, no backend, no audio files. Installable as a PWA and playable offline.
-
-## Run locally
-- Quick: open `index.html` (everything except PWA install/offline works from `file://`).
-- Full (PWA, service worker): `python3 -m http.server 8000` → http://localhost:8000 (localhost counts as secure).
-## Host
-Upload the folder to any static host over **HTTPS** (GitHub Pages, Netlify, Cloudflare Pages…). After changing any file, bump `V` in `sw.js` so installed copies refresh.
 
 ## Modes (single source of truth: `MODES` + `CFG` in `js/game.js`)
 | Mode | Time | Lives | Notes |
@@ -40,10 +33,10 @@ Key `ruleRush.v1` (kept so v1 records survive) with `v:2` inside. Old data is me
 **Daily/weekly scores, streaks and rewards are stored on this device only — there is no online verification or leaderboard** (and device-clock changes can affect them).
 
 ## Testing report (what was actually run)
-- `node --check` on all JS; manifest parses. ✔
-- Headless engine simulation (Node, bot player), all 5 modes: runs end at the configured duration/lives, 0 frames without a valid target (incl. 400 s Endless with all 5 boss types), objects always inside the arena, unique ids/slots, score equals the sum of per-tap gains + boss bonuses, multiplier table, no double scoring, shield/freeze/clear behave, pause freezes the clock, stop halts the loop, daily and weekly are deterministic. ✔
-- Storage: v1 → v2 migration keeps records, corrupted/wrong-type data handled, achievements/themes never re-awarded, daily reward once per day, streak continue/break logic. ✔
-- UI smoke test in jsdom (scripted clicks/keys): all screens and back buttons, mode selection, locked themes not selectable, play/pause/resume/restart/home, hotkeys, power buttons, tab-hidden auto-pause, boss banner, game over → Play Again, share clipboard fallback, localStorage writes, 0 JS errors. ✔
+- `node --check` on all JS; manifest parses. 
+- Headless engine simulation (Node, bot player), all 5 modes: runs end at the configured duration/lives, 0 frames without a valid target (incl. 400 s Endless with all 5 boss types), objects always inside the arena, unique ids/slots, score equals the sum of per-tap gains + boss bonuses, multiplier table, no double scoring, shield/freeze/clear behave, pause freezes the clock, stop halts the loop, daily and weekly are deterministic. 
+- Storage: v1 → v2 migration keeps records, corrupted/wrong-type data handled, achievements/themes never re-awarded, daily reward once per day, streak continue/break logic. 
+- UI smoke test in jsdom (scripted clicks/keys): all screens and back buttons, mode selection, locked themes not selectable, play/pause/resume/restart/home, hotkeys, power buttons, tab-hidden auto-pause, boss banner, game over → Play Again, share clipboard fallback, localStorage writes, 0 JS errors. 
 - Duel: same seed ⇒ identical starting board/rule (engine + UI), turn handoff, winner/draw text, rematch swaps order, restart hidden, solo records untouched, 0 JS errors. ✔ (One earlier run of the general UI smoke test exited abnormally; I could not reproduce it in 4 reruns, all passed.)
 - **NOT verified** (no real browser/device available): visual layout and animation quality on real screens, touch/orientation behaviour, safe-area insets, actual audio and vibration output, Web Share sheet, PWA install prompt and offline reload, performance on low-end phones. Please test these on a real phone.
 
