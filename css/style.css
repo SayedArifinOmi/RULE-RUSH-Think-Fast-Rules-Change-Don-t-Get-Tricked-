@@ -144,3 +144,40 @@ h2{font-size:clamp(26px,7vw,40px);font-weight:900;text-shadow:none;background:li
 @keyframes rise{from{opacity:0;transform:translateY(14px)}}@keyframes bob{50%{transform:translateY(-8px) rotate(8deg)}}@keyframes shine{to{background-position:200% center}}
 @keyframes glowp{50%{transform:scale(1.04);box-shadow:0 14px 44px color-mix(in srgb,var(--pink) 70%,transparent),inset 0 1px 0 rgba(255,255,255,.35)}}
 @media (max-height:640px){.emblem{display:none}.hs strong{font-size:42px}.menu .btn{min-height:52px}}
+#home {
+  justify-content: flex-start !important;
+  padding-top: 15px !important;
+  padding-bottom: 20px !important;
+  gap: 10px !important;
+}
+
+#home .creator {
+  display: block !important;
+  flex-shrink: 0;
+  margin-top: 5px !important;
+  padding: 8px !important;
+  font-size: 11px !important;
+  color: #aaa !important;
+  text-align: center;
+}
+
+#home .creator b {
+  color: #ffd60a !important;
+}
+
+#home .creator {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  position: relative !important;
+  text-align: center !important;
+  color: #ffffff !important;
+  font-size: 12px !important;
+  margin-top: 20px !important;
+  padding: 10px !important;
+  z-index: 999 !important;
+}
+
+#home .creator b {
+  color: #ffd60a !important;
+}
