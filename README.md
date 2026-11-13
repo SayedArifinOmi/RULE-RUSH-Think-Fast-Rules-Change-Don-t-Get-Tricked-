@@ -1,6 +1,6 @@
 # RULE RUSH  — Think Fast. Rules Change. Don't Get Tricked!
 
-## Modes (single source of truth: `MODES` + `CFG` in `js/game.js`)
+## Modes
 | Mode | Time | Lives | Notes |
 |---|---|---|---|
 | Classic | 45 s | 3 | balanced |
@@ -30,7 +30,7 @@ Note: the seed fixes the starting conditions and random sequences, but later boa
 - Headless engine simulation (Node, bot player), all 5 modes: runs end at the configured duration/lives, 0 frames without a valid target (incl. 400 s Endless with all 5 boss types), objects always inside the arena, unique ids/slots, score equals the sum of per-tap gains + boss bonuses, multiplier table, no double scoring, shield/freeze/clear behave, pause freezes the clock, stop halts the loop, daily and weekly are deterministic. 
 - Storage: v1 → v2 migration keeps records, corrupted/wrong-type data handled, achievements/themes never re-awarded, daily reward once per day, streak continue/break logic. 
 - UI smoke test in jsdom (scripted clicks/keys): all screens and back buttons, mode selection, locked themes not selectable, play/pause/resume/restart/home, hotkeys, power buttons, tab-hidden auto-pause, boss banner, game over → Play Again, share clipboard fallback, localStorage writes, 0 JS errors. 
-- Duel: same seed ⇒ identical starting board/rule (engine + UI), turn handoff, winner/draw text, rematch swaps order, restart hidden, solo records untouched, 0 JS errors. ✔ (One earlier run of the general UI smoke test exited abnormally; I could not reproduce it in 4 reruns, all passed.)
+- Duel: same seed ⇒ identical starting board/rule (engine + UI), turn handoff, winner/draw text, rematch swaps order, restart hidden, solo records untouched, 0 JS errors.  (One earlier run of the general UI smoke test exited abnormally; I could not reproduce it in 4 reruns, all passed.)
 - **NOT verified** (no real browser/device available): visual layout and animation quality on real screens, touch/orientation behaviour, safe-area insets, actual audio and vibration output, Web Share sheet, PWA install prompt and offline reload, performance on low-end phones. Please test these on a real phone.
 
 ## Known limitations / future
