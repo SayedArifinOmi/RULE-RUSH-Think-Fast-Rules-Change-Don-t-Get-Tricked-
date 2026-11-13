@@ -1,4 +1,4 @@
-# RULE RUSH v2 — Think Fast. Rules Change. Don't Get Tricked!
+# RULE RUSH  — Think Fast. Rules Change. Don't Get Tricked!
 
 ## Modes (single source of truth: `MODES` + `CFG` in `js/game.js`)
 | Mode | Time | Lives | Notes |
@@ -22,15 +22,8 @@
 Home → **👥 2 Players**. Player 1 plays a 30 s turn, passes the device, then Player 2 plays. Both turns start from the **same random seed** (identical starting board and rule, same power-up/boss schedule), with separate scores, a winner/draw announcement and a **Rematch** (new seed, player order swapped). Duel turns don't change solo high scores, stats or achievements, and a turn can't be restarted from the pause menu.
 Note: the seed fixes the starting conditions and random sequences, but later boards still depend on how each player taps, so the two runs are equal in setup rather than frame-identical.
 
-## UI
-v3 visual pass: animated emblem + gradient logo, glass cards, icon tiles, richer HUD/rule card, dotted arena, glossy shapes, redesigned results. Pure CSS (plus small HTML/JS tweaks) — layout was checked in jsdom only, not in a real browser.
 
-## Files
-`index.html` · `css/style.css` · `js/storage.js` (dates, versioned storage) · `js/progress.js` (achievements, themes) · `js/audio.js` · `js/game.js` (engine) · `js/ui.js` · `manifest.json` · `sw.js` · `assets/icon-*.png`
 
-## Data
-Key `ruleRush.v1` (kept so v1 records survive) with `v:2` inside. Old data is merged into the new schema (never reset); wrong-typed fields fall back to defaults; unparsable data is copied to `ruleRush.v1.corrupt`.
-**Daily/weekly scores, streaks and rewards are stored on this device only — there is no online verification or leaderboard** (and device-clock changes can affect them).
 
 ## Testing report (what was actually run)
 - `node --check` on all JS; manifest parses. 
