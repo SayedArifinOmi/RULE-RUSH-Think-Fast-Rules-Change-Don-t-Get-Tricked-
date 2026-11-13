@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<meta name="theme-color" content="#0b0720"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes">
+<title>RULE RUSH</title><link rel="manifest" href="manifest.json"><link rel="apple-touch-icon" href="assets/icon-192.png">
+<link rel="icon" href="assets/icon-192.png"><link rel="stylesheet" href="css/style.css"></head><body>
+<div id="app">
+<section id="home" class="screen active">
+  <div class="emblem"><span class="em" style="--c:#ff4d6d;--d:0s"><i class="shape circle"></i></span><span class="em" style="--c:#3a86ff;--d:.15s"><i class="shape triangle"></i></span><span class="em" style="--c:#ffd60a;--d:.3s"><i class="shape star"></i></span><span class="em" style="--c:#2ee59d;--d:.45s"><i class="shape square"></i></span><span class="em" style="--c:#b05cff;--d:.6s"><i class="shape diamond"></i></span></div>
+  <h1 class="logo">RULE<span>RUSH</span></h1>
+  <p class="tag">Think Fast. Rules Change. Don't Get Tricked!</p>
+  <div id="modes" class="modes"></div>
+  <p id="desc" class="desc"></p>
+  <div class="panel hs"><small>HIGH SCORE</small><strong id="best">0</strong><em id="stats"></em></div>
+  <button id="play" class="btn big">▶ PLAY</button>
+  <div class="menu">
+    <button class="btn ghost" data-go="daily"><span>📅</span>Challenges</button><button class="btn ghost" data-go="ach"><span>🏆</span>Achievements</button><button class="btn ghost" data-go="themes"><span>🎨</span>Themes</button>
+    <button class="btn ghost" data-go="how"><span>❓</span>How to Play</button><button class="btn ghost snd"></button><button class="btn ghost hap"></button>
+    <button class="btn ghost" data-go="duel" style="grid-column:1/-1"><span>👥</span>2 Players · same device</button>
+  </div>
+</section>
+<section id="daily" class="screen">
+  <h2>CHALLENGES</h2>
+  <div class="panel ch"><h3>📅 Daily Challenge</h3><p class="desc">60 s · 3 lives · the same board seed for everyone on this date (<b id="dKey"></b>).</p>
+    <div class="grid"><span>Today's best<b id="dBest"></b></span><span>Streak<b id="dStreak"></b></span></div>
+    <p id="dStatus" class="st"></p><small id="dNext"></small><button id="playDaily" class="btn">▶ Play Daily</button></div>
+  <div class="panel ch"><h3>🏆 Weekly Challenge</h3><p class="desc">60 s · starts hard · a boss every 6 rules (<b id="wKey"></b>).</p>
+    <div class="grid"><span>Week's best<b id="wBest"></b></span></div><p id="wStatus" class="st"></p><button id="playWeekly" class="btn">▶ Play Weekly</button></div>
+  <small class="desc">Completing a timer run earns the reward once per day/week. Scores are stored on this device only — there is no online leaderboard.</small>
+  <button class="btn ghost" data-go="home">← Back</button>
+</section>
+<section id="duel" class="screen"><h2 id="duTitle">2 PLAYERS</h2><p id="duMsg" class="desc"></p>
+  <div class="panel ch"><div class="grid" id="duScore"></div></div>
+  <button id="duGo" class="btn big">▶ Start</button><button class="btn ghost homeBtn">Home</button></section>
+<section id="ach" class="screen"><h2>ACHIEVEMENTS <small id="achCount"></small></h2><div id="achList" class="list"></div><button class="btn ghost" data-go="home">← Back</button></section>
+<section id="themes" class="screen"><h2>THEMES</h2><div id="themeList" class="list"></div><button class="btn ghost" data-go="home">← Back</button></section>
+<section id="how" class="screen">
+  <h2>How to Play</h2>
+  <p class="desc">Follow the rule at the top and <b>tap matching objects</b>. Wrong taps cost a life. Complete rules to trigger <b>boss rounds</b> every 10 rules.</p>
+  <div id="examples"></div>
+  <p class="desc"><b>Combo:</b> 5 in a row = ×2, 10 = ×3, 15 = ×4, 20+ = ×5.<br><b>Orbs</b> ❄ ⏳ 🛡 💥 appear briefly — tap one to store it, then use it from the bar (F · S · X · C).<br>Keys: 1–9,0,-,= tap objects · P/Space pause · M mute</p>
+  <button class="btn big" data-go="home">Got it!</button>
+</section>
+<section id="game" class="screen">
+  <header class="hud">
+    <div class="chip"><small>SCORE</small><b id="score">0</b></div><div class="chip"><small id="tl">TIME</small><b id="time">45</b></div>
+    <div class="chip"><small>LIVES</small><b id="lives"></b></div><div class="chip"><small>COMBO</small><b id="combo">0 ×1</b></div>
+    <button id="pauseBtn" class="btn ghost" aria-label="Pause">❚❚</button>
+  </header>
+  <div id="rule" class="rule panel"><em id="tag"></em><span id="ruleText"></span><i id="ruleBar"></i></div>
+  <div id="arena"></div>
+  <div id="powers" class="powers"></div>
+  <div id="bossBanner"></div><div id="msg"></div>
+</section>
+<section id="over" class="screen">
+  <h2 id="overTitle">GAME OVER</h2>
+  <div class="panel res"><div class="bigscore" id="fScore">0</div><div id="newBest" class="badge">★ NEW PERSONAL BEST ★</div><div id="rating" class="rating"></div>
+    <div class="grid" id="stats8"></div><div id="reward" class="st"></div><div id="unlocks"></div></div>
+  <button id="again" class="btn big">↻ Play Again</button>
+  <div class="row"><button id="shareBtn" class="btn ghost">Share Score</button><button class="btn ghost homeBtn">Home</button></div>
+</section>
+<div id="pause" class="overlay"><h2>PAUSED</h2><button id="resume" class="btn big">▶ Resume</button>
+  <div class="row"><button id="restart" class="btn ghost">↻ Restart</button><button class="btn ghost snd"></button><button class="btn ghost hap"></button><button class="btn ghost homeBtn">Home</button></div></div>
+<div id="toast"></div>
+</div>
+<script src="js/storage.js"></script><script src="js/progress.js"></script><script src="js/audio.js"></script><script src="js/game.js"></script><script src="js/ui.js"></script>
+</body></html>
