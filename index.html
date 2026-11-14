@@ -3,22 +3,35 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
 <meta name="theme-color" content="#0b0720"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes">
 <title>RULE RUSH</title><link rel="manifest" href="manifest.json"><link rel="apple-touch-icon" href="assets/icon-192.png">
-<link rel="icon" href="assets/icon-192.png"><link rel="stylesheet" href="css/style.css"></head><body>
+<link rel="icon" type="image/svg+xml" href="assets/logo.svg"><link rel="icon" type="image/png" href="assets/icon-192.png"><link rel="stylesheet" href="css/style.css"><link rel="stylesheet" href="css/premium.css"></head><body>
 <div id="app">
 <section id="home" class="screen active">
-  <div class="emblem"><span class="em" style="--c:#ff4d6d;--d:0s"><i class="shape circle"></i></span><span class="em" style="--c:#3a86ff;--d:.15s"><i class="shape triangle"></i></span><span class="em" style="--c:#ffd60a;--d:.3s"><i class="shape star"></i></span><span class="em" style="--c:#2ee59d;--d:.45s"><i class="shape square"></i></span><span class="em" style="--c:#b05cff;--d:.6s"><i class="shape diamond"></i></span></div>
-  <h1 class="logo">RULE<span>RUSH</span></h1>
-  <p class="tag">Think Fast. Rules Change. Don't Get Tricked!</p>
+  <div class="hero">
+    <i class="sp" style="left:10%;top:4%;--d:0s">✦</i><i class="sp" style="right:12%;top:12%;--d:.9s">✦</i><i class="sp" style="left:18%;top:46%;--d:1.6s;font-size:12px">✦</i><i class="sp" style="right:16%;top:50%;--d:.4s;font-size:12px">✦</i>
+    <div class="markwrap"><i class="pulse"></i><i class="pulse b"></i>
+      <div class="orbit"><i style="--c:#ff4d6d;--a:0deg"></i><i style="--c:#27e9ff;--a:120deg"></i><i style="--c:#ffd60a;--a:240deg"></i></div>
+      <img class="mark" src="assets/logo.svg" alt="Rule Rush logo" width="96" height="96" draggable="false"></div>
+    <h1 class="logo">RULE<span>RUSH</span></h1>
+    <p class="tag">Think Fast. Rules Change. Don't Get Tricked!</p>
+  </div>
+  <div class="sect">CHOOSE MODE</div>
   <div id="modes" class="modes"></div>
   <p id="desc" class="desc"></p>
-  <div class="panel hs"><small>HIGH SCORE</small><strong id="best">0</strong><em id="stats"></em></div>
-  <button id="play" class="btn big">▶ PLAY</button>
+  <div class="panel hs">
+    <div class="hs-ic">👑</div>
+    <div class="hs-body"><small id="hsLabel">HIGH SCORE</small><strong id="best">0</strong></div>
+    <em id="stats"></em>
+  </div>
+  <div class="playwrap"><i class="halo"></i><i class="halo b"></i><button id="play" class="btn big">▶ PLAY</button></div>
   <div class="menu">
-    <button class="btn ghost" data-go="daily"><span>📅</span>Challenges</button><button class="btn ghost" data-go="ach"><span>🏆</span>Achievements</button><button class="btn ghost" data-go="themes"><span>🎨</span>Themes</button>
-    <button class="btn ghost" data-go="how"><span>❓</span>How to Play</button><button class="btn ghost snd"></button><button class="btn ghost hap"></button>
+    <button class="btn ghost" data-go="daily"><span>📅</span>Challenges</button><button class="btn ghost" data-go="ach"><span>🏆</span>Awards</button><button class="btn ghost" data-go="themes"><span>🎨</span>Themes</button><button class="btn ghost" data-go="how"><span>❓</span>Guide</button>
+    <button class="btn ghost snd"></button><button class="btn ghost hap"></button>
     <button class="btn ghost" data-go="duel" style="grid-column:1/-1"><span>👥</span>2 Players · same device</button>
   </div>
-  <p class="creator">Made by <b>Omi</b> © 2026</p>
+  <div class="signature">
+    <div class="sg-pill"><i class="sg-gem">◆</i><span>Designed &amp; Built by</span><b>Omi</b><i class="sg-gem g2">◆</i></div>
+    <small>© 2026 · RULE RUSH · All rights reserved</small>
+  </div>
 </section>
 <section id="daily" class="screen">
   <h2>CHALLENGES</h2>
@@ -64,5 +77,5 @@
   <div class="row"><button id="restart" class="btn ghost">↻ Restart</button><button class="btn ghost snd"></button><button class="btn ghost hap"></button><button class="btn ghost homeBtn">Home</button></div></div>
 <div id="toast"></div>
 </div>
-<script src="js/storage.js"></script><script src="js/progress.js"></script><script src="js/audio.js"></script><script src="js/game.js"></script><script src="js/ui.js"></script>
+<script src="js/storage.js"></script><script src="js/progress.js"></script><script src="js/audio.js"></script><script src="js/game.js"></script><script src="js/ui.js"></script><script src="js/fx.js"></script>
 </body></html>
